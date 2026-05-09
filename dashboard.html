@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Login Overlay -->
+    <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(20px);">
+        <div class="logo" style="margin-bottom: 2rem;">AGENT LOGIN</div>
+        <div style="background: var(--card-bg); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); width: 350px; text-align: center;">
+            <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Enter Access Code to View Insights</p>
+            <input type="password" id="access-code" placeholder="••••••••" style="width: 100%; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 8px; color: white; margin-bottom: 1.5rem; text-align: center; font-size: 1.2rem; outline: none;">
+            <button onclick="checkAccess()" style="width: 100%; padding: 1rem; background: var(--accent-gold); border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Unlock Dashboard</button>
+            <p id="login-error" style="color: #ff4d4d; font-size: 0.8rem; margin-top: 1rem; display: none;">Incorrect Access Code</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard (Hidden initially) -->
+    <div id="dashboard-content" style="display: none; width: 100%; height: 100vh; display: flex;">
 
     <aside class="sidebar">
         <div class="logo">SEE YOUR NEW SITE</div>
@@ -94,6 +107,8 @@
             </section>
         </div>
     </main>
+
+    </div> <!-- End Dashboard Content -->
 
     <script src="script.js"></script>
 </body>
