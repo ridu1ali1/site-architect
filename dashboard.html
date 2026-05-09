@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Your New Site | AI Agency Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">SEE YOUR NEW SITE</div>
+        <nav>
+            <div class="nav-item active"><i class="fas fa-search"></i> Scout Leads</div>
+            <div class="nav-item"><i class="fas fa-globe"></i> Active Mockups</div>
+            <div class="nav-item"><i class="fas fa-chart-line"></i> Analytics</div>
+            <div class="nav-item"><i class="fas fa-cog"></i> Settings</div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="search-bar">
+                <input type="text" id="niche" placeholder="Niche (e.g. Luxury Spa)">
+                <input type="text" id="location" placeholder="Location (e.g. Dubai)">
+                <button class="btn-start" onclick="startScouting()">Start Scouting</button>
+            </div>
+            <div class="user-profile">
+                <span id="current-date">May 09, 2026</span>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Leads Section -->
+            <section class="section-card">
+                <div class="card-title">
+                    <span>Live Lead Scouting</span>
+                    <div id="progress-container" style="display: none; width: 150px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
+                        <div id="progress-bar" style="width: 0%; height: 100%; background: var(--accent-blue); transition: 0.3s;"></div>
+                    </div>
+                    <small style="color: var(--accent-blue); font-size: 0.8rem;" id="scout-status">Idle</small>
+                </div>
+                <div class="leads-list" id="leads-container">
+                    <!-- Example Lead -->
+                    <div class="lead-item" onclick="selectLead('Apex Dental')">
+                        <div class="lead-info">
+                            <h4>Apex Dental Clinic</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Raiganj, WB | <i class="fas fa-link"></i> No Website</p>
+                        </div>
+                        <span class="status-badge status-new">High Priority</span>
+                    </div>
+                    <div class="lead-item" onclick="selectLead('Blue Cafe')">
+                        <div class="lead-info">
+                            <h4>Blue Moon Cafe</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Kolkata, WB | <i class="fas fa-link"></i> Outdated</p>
+                        </div>
+                        <span class="status-badge status-new">Ready</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preview & Action Section -->
+            <section class="section-card">
+                <div class="card-title">Lead Insight</div>
+                
+                <div id="no-selection" style="text-align: center; color: var(--text-dim); margin-top: 5rem;">
+                    <i class="fas fa-mouse-pointer" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                    <p>Select a lead to view mockup & pitch</p>
+                </div>
+
+                <div id="lead-details" style="display: none;">
+                    <h3 id="selected-name" style="margin-bottom: 1rem;">Apex Dental Clinic</h3>
+                    
+                    <div class="preview-thumbnail">
+                        <div class="preview-overlay">
+                            <button class="btn-preview" onclick="openPreview()">Live Preview</button>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Mockup">
+                    </div>
+
+                    <p style="font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 600;">RECOMMENDED PITCH</p>
+                    <div class="pitch-box" id="pitch-text">
+                        "Hi Apex Dental, I noticed your clinic is a leader in Raiganj but doesn't have a modern web presence. I've built a premium, mobile-ready concept for you here. Let's make it official!"
+                    </div>
+
+                    <div class="action-btns">
+                        <button class="btn-action primary" onclick="copyPitch()">Copy Pitch & Link</button>
+                        <button class="btn-action"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+                        <button class="btn-action">Edit Mockup</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
